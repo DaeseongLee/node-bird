@@ -1,18 +1,20 @@
 {
   "name": "front",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "next"
   },
   "author": "lee",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "@ant-design/icons": "^4.5.0",
+    "antd": "^4.13.1",
     "next": "^9.5.5",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "eslint": "^7.21.0",
@@ -20,6 +22,15 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "nodemon": "^2.0.7",
-    "webpack": "^5.24.4"
-  }
+    "webpack": "^4.44.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaeseongLee/node-bird.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DaeseongLee/node-bird/issues"
+  },
+  "homepage": "https://github.com/DaeseongLee/node-bird#readme",
+  "description": ""
 }
