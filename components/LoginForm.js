@@ -2,6 +2,10 @@ import React, { useCallback } from 'react';
 import { Button, Form, Input } from 'antd';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+
+import useInput from '../hooks/useInput';
+import { loginAction } from '../reducers/user';
 
 const LoginRegisterButton = styled.div`
     margin-top: 10px;
@@ -11,15 +15,17 @@ const FormStyle = styled(Form)`
     padding: 10px;
 `;
 
-
-import useInput from '../hooks/useInput';
 const LoginForm = () => {
     const [id, onChangeId] = useInput('');
     const [password, onChangePassword] = useInput('');
-
+    const dispatch = useDispatch();
     //onSubmitForm에서는 따로 e.preventDefault 안해줘도 됨.
     const onSubmitForm = useCallback(() => { //useCallback함수는 함수를 캐시에 저장한다. 따라서 리랜더링해도 다시 호출 안함.
         console.log({ id, password });
+        dispatch(loginAction({
+            id,
+            password,
+        }));
     }, [id, password]);
     return (
         <FormStyle onFinish={onSubmitForm}>

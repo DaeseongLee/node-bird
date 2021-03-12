@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Col, Row, Input, Menu } from 'antd';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import UserProfile from './UserProfile';
@@ -11,15 +12,9 @@ const InputSearch = styled(Input.Search)`
   vertical-align: middle;
 `;
 
-const dummy = {
-  nickname: '제로초',
-  Post: [],
-  Followings: [],
-  Followers: [],
-  isLoggedIn: false,
-}
 
 const AppLayout = ({ children }) => {
+  const { isLoggedIn } = useSelector(state => state.user);
   return (
     <div>
       <Menu mode="horizontal">
@@ -31,7 +26,7 @@ const AppLayout = ({ children }) => {
       </Menu>
       <Row gutter={8}>
         <Col xs={24} md={6}>
-          {dummy.isLoggedIn
+          {isLoggedIn
             ? <UserProfile />
             : <LoginForm />
           }
